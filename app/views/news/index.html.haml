@@ -1,0 +1,9 @@
+- content_for :title, t("news.title")
+
+%section
+  .row
+    .columns
+      - @news.each do |article|
+        %h1= article.title
+        = simple_format(truncate(article.description, length: 750, separator: " "))
+        %h3= link_to t("read_more"), show_article_path(article)

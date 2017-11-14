@@ -1,0 +1,60 @@
+!!! 5
+%html.no-js{ lang: I18n.locale, dir: I18n.locale == :en ? "ltr" : "rtl" }
+  %head
+    = favicon_link_tag "logo.png"
+
+    %meta{ charset: "utf-8" }
+    %meta{ name: "viewport", content: "width = device-width, initial-scale = 1.0" }
+
+    %title= content_for?(:title) ? yield(:title) : "Casablanca"
+
+    = javascript_include_tag "vendor/modernizr"
+    = javascript_include_tag "application", controller_name
+    = csrf_meta_tags
+    = stylesheet_link_tag    "foundation_and_overrides." + I18n.locale.to_s
+    = stylesheet_link_tag    "application", controller_name
+    = stylesheet_link_tag    "https://fonts.googleapis.com/css?family=Ubuntu:300,400,500,700"
+  %body
+    %header
+      .row
+        %center
+          = link_to (image_tag "logo.png", width: 100), root_url
+          %ul#social
+            - social_links.each do |social_link|
+              %li= link_to (image_tag social_link.image.thumb), social_link.target, target: "_blank"
+        %ul#menu.show-for-medium-up
+          %li= link_to t("home.title"), root_url, class: active("home")
+          %li= link_to t("abouts.title"), abouts_path, class: active("abouts")
+          %li= link_to t("services.title"), services_path, class: active("services")
+          %li= link_to t("projects.title"), projects_path, class: active("projects")
+          %li= link_to t("news.title"), news_path, class: active("news")
+          %li= link_to t("clients.title"), clients_path, class: active("clients")
+          %li= link_to t("contacts.title"), contacts_path, class: active("contacts")
+        %select.hide-for-medium-up{ onchange: "location.href = $(this).val();" }
+          %option{ value: root_url, selected: selected("home") }= t("home.title")
+          %option{ value: abouts_path, selected: selected("abouts") }= t("abouts.title")
+          %option{ value: services_path, selected: selected("services") }= t("services.title")
+          %option{ value: projects_path, selected: selected("projects") }= t("projects.title")
+          %option{ value: news_path, selected: selected("news") }= t("news.title")
+          %option{ value: clients_path, selected: selected("clients") }= t("clients.title")
+          %option{ value: contacts_path, selected: selected("contacts") }= t("contacts.title")
+        .clear
+    - if notice
+      .alert-box.success{ "data-alert": "" }
+        = notice
+        %a.close{ href: "#" } &times;
+    - if alert
+      .alert-box.alert{ "data-alert": "" }
+        - alert.each do |a|
+          = a
+        %a.close{ href: "#" } &times;
+    %main= yield
+    %footer
+      .row
+        %div{ class: float("right") }
+          %span
+            = image_tag "icon-phone.png"
+            = contact_details.telephone
+          = image_tag "icon-mail.png"
+          = mail_to contact_details.email
+

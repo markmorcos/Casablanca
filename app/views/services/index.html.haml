@@ -1,0 +1,25 @@
+- content_for :title, t("services.title")
+
+%section
+  .row
+    .columns
+      %h1= t("services.title")
+      %p
+        %b Filter by category
+      %h3
+        = link_to "Show All", "javascript:", class: "active filter", "data-filter": "all"
+        - @categories.each do |category|
+          = link_to category.name, "javascript:", class: "filter", "data-filter": ".category-#{category.id}"
+      %p
+        %b Sort
+      %h3
+        = link_to ("Name" + icon("arrow-circle-down")).html_safe, "javascript:", class: "sort", "data-sort": "name:asc"
+        = link_to ("Name" + icon("arrow-circle-up")).html_safe, "javascript:", class: "sort", "data-sort": "name:desc"
+        = link_to ("Date" + icon("arrow-circle-down")).html_safe, "javascript:", class: "active sort", "data-sort": "date:asc"
+        = link_to ("Date" + icon("arrow-circle-up")).html_safe, "javascript:", class: "sort", "data-sort": "date:desc"
+        = link_to ("Popularity" + icon("arrow-circle-down")).html_safe, "javascript:", class: "sort"
+        = link_to ("Popularity" + icon("arrow-circle-up")).html_safe, "javascript:", class: "sort"
+    #services
+      - @services.each do |service|
+        .columns.small-12.medium-4.mix{ class: "category-#{service.service_category_id}", "data-date": service.id, "data-name": service.name }
+          = link_to (image_tag service.image.thumb), show_service_path(service)

@@ -1,0 +1,45 @@
+- content_for :title, t("contacts.title")
+
+.row
+  .columns
+    %h1= t("contacts.title")
+    %iframe{ width: "100%", height: "330", frameborder: "0", src: "https://www.google.com/maps/embed/v1/place?key=AIzaSyDSd9Rv-xBPz5441EgwZuY8CvqJgXq7cCM&q=Space+Needle,Seattle+WA" }
+  .columns.small-12.medium-4
+    %h3= t("contacts.address") + ":"
+    = icon("home")
+    = simple_format(contact_details.address, class: float("left"))
+  .columns.small-12.medium-4
+    %h3= t("contacts.phones") + ":"
+    = icon("phone")
+    %p= contact_details.telephone
+    = icon("print")
+    %p= contact_details.fax
+  .columns.small-12.medium-4
+    %h3= t("contacts.email") + ":"
+    = icon("envelope")
+    %p= mail_to contact_details.email
+.row
+  .columns
+    %h3= t("contacts.misc") + ":"
+    = simple_format(contact_details.description)
+    %p
+      %i= t("contacts.form_info")
+.row
+  .columns
+  = form_for(@contact) do |f|
+    .columns.small-12.medium-4
+      = f.label :name, t("contacts.name")
+      = f.text_field :name, required: true
+    .columns.small-12.medium-4
+      = f.label :email, t("contacts.email")
+      = f.email_field :email, required: true
+    .columns.small-12.medium-4
+      = f.label :subject, t("contacts.subject")
+      = f.text_field :subject, required: true
+    .columns.small-12
+      = f.label :message, t("contacts.message")
+      = f.text_area :message, required: true
+      = check_box_tag :yourself, true, params[:yourself]
+      = label_tag :yourself, (content_tag :p, t("contacts.yourself"))
+      = f.submit t("contacts.send"), class: float("right")
+

@@ -1,0 +1,23 @@
+.orbit-bullets-container {
+  position: absolute;
+  bottom: 0;
+  right: 20px;
+}
+
+.orbit-bullets {
+  li {
+    border-radius: 0 !important;
+    width: 4rem !important;
+    height: 0.4rem !important;
+    margin-right: 1px !important;
+    background: #ffffff;
+    -o-transition: all 0.5s ease;
+    -ms-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -webkit-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+  }
+  li.active, li:hover {
+    background: #2e2e2e !important;
+  }
+}

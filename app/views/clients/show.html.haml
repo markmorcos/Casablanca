@@ -1,0 +1,9 @@
+- content_for :title, @client.name
+
+%section
+  .row
+    .columns
+      %h1= @client.name
+      = image_tag @client.image, class: float("left")
+      = simple_format(@client.description)
+      .clear

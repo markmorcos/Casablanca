@@ -1,0 +1,9 @@
+- content_for :title, t("abouts.title")
+
+%section
+  .row
+    .columns
+      - @abouts.each do |about|
+        %h1= about.name
+        = simple_format(truncate(about.description, length: 750, separator: " "))
+        %h3= link_to t("read_more"), show_about_path(about)

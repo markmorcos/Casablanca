@@ -1,0 +1,16 @@
+section {
+  img {
+    margin-bottom: 9px;
+  }
+
+  p {
+    vertical-align: top;
+  }
+}
+
+html[lang="en"] section img {
+  margin-right: 18px;
+}
+html[lang="ar"] section img {
+  margin-left: 18px;
+}

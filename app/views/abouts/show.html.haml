@@ -1,0 +1,6 @@
+- content_for :title, @about.name
+
+.row
+  .columns
+    %h1= @about.name
+    = simple_format(@about.description)

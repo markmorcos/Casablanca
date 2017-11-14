@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+%html{lang: 'en'}
+  %head
+    = favicon_link_tag 'logo.png'
+
+    %meta{charset: "utf-8"}
+    %meta{name: "viewport", content: "width=device-width, initial-scale=1.0"}
+
+    %title= content_for?(:title) ? yield(:title) : 'Casablanca'
+
+    = javascript_include_tag "vendor/modernizr"
+    = javascript_include_tag "application", 'data-turbolinks-track' => true
+    = csrf_meta_tags
+
+  %body
+    %header
+      = link_to (image_tag 'logo.png', width: 100), root_url
+      %ul#menu
+        %li= link_to 'Home', root_url, class: 'active'
+        %li= link_to 'Services', services_path
+        %li= link_to 'Contact', 'contacts#index'
+    -if alert
+      %div.alert-box.alert
+        = alert
+        %a.close{href: "javascript:"} &times;
+    = yield

@@ -1,0 +1,4 @@
+<% content_for :title, 'Home' %>
+<% 20.times do |i| %>
+<h1><%= i %></h1>
+<% end %>

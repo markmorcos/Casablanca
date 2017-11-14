@@ -1,0 +1,36 @@
+#default: &default
+#  adapter: mysql2
+#  pool: 5
+#  host: localhost
+#  username: root
+#  password:
+#
+#development:
+#  <<: *default
+#  database: casablanca_development
+#
+#test:
+#  <<: *default
+#  database: casablanca_test
+#
+#production:
+#  <<: *default
+#  database: casablanca
+
+default: &default
+  adapter: postgresql
+  pool: 5
+  host: ec2-54-247-79-142.eu-west-1.compute.amazonaws.com
+  port: 5432
+  username: nwcpfraulginga
+  password: RhtMsIv5JeIlWuQZjUXKMC460M
+  database: d45d4ul76csngg
+
+development:
+  <<: *default
+
+test:
+  <<: *default
+
+production:
+  <<: *default

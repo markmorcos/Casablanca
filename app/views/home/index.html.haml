@@ -1,0 +1,56 @@
+- content_for :title, t("home.title")
+
+- if @sliders.any?
+  .orbit-container
+    %ul.data-orbit{ "data-orbit": "", "data-options": "pause_on_hover: false; navigation_arrows: false; slide_number: false; timer: true; animation: 'fade'; variable_height: true;" }
+      - @sliders.each do |slider|
+        %li
+          = image_tag slider.image
+          .orbit-caption= slider.caption
+    .orbit-bullets-container
+    #thumbnails
+      - @sliders.each do |slider|
+        = link_to (image_tag slider.image.thumb, class: "th"), "javascript:;", "data-orbit-link": slider.id - 1
+
+#services
+  .row
+    .columns.small-12.medium-4
+      %center
+        = image_tag "icon-1.png"
+        %h1 Experience
+        %p Duis ultr icies pharetra. Donec accuan malesuada orcinec sitmet eros. Lorem ipsum dolor sit amet con secetuer adipiscing elit. Mauris fermeum dictum ma sed loreet aliquam.
+        %h3= link_to t("read_more"), root_url
+    .columns.small-12.medium-4
+      %center
+        = image_tag "icon-2.png"
+        %h1 Development
+        %p Duis ultr icies pharetra. Donec accuan malesuada orcinec sitmet eros. Lorem ipsum dolor sit amet con secetuer adipiscing elit. Mauris fermeum dictum ma sed loreet aliquam.
+        %h3= link_to t("read_more"), root_url
+    .columns.small-12.medium-4
+      %center
+        = image_tag "icon-3.png"
+        %h1 What we do
+        %p Duis ultr icies pharetra. Donec accuan malesuada orcinec sitmet eros. Lorem ipsum dolor sit amet con secetuer adipiscing elit. Mauris fermeum dictum ma sed loreet aliquam.
+        %h3= link_to t("read_more"), root_url
+
+- if @projects.any?
+  #work
+    .row
+      .columns
+        %h2= t("home.current_projects")
+      - @projects.each do |project|
+        .columns.small-12.medium-6.large-3
+          = link_to (image_tag project.image.thumb), show_project_path(project)
+          .details
+            %h3= project.name
+            %p= truncate(project.description, length: 100, separator: " ")
+            %hr
+            = link_to t("read_more"), show_project_path(project)
+
+- if @clients.any?
+  #clients
+    .row
+      - @clients.each do |client|
+        = link_to (image_tag client.image.thumb), show_client_path(client)
+      
+%iframe{ width: "100%", height: "330", frameborder: "0", src: "https://www.google.com/maps/embed/v1/place?key=AIzaSyDSd9Rv-xBPz5441EgwZuY8CvqJgXq7cCM&q=Space+Needle,Seattle+WA" }

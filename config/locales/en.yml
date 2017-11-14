@@ -1,0 +1,35 @@
+en:
+  read_more: "Read More"
+  
+  abouts:
+    title: "About"
+  
+  contacts:
+    title: "Contact"
+    address: "Address"
+    phones: "Phones"
+    email: "Email"
+    misc: "Miscellaneous information"
+    form_info: "Send an email. All fields with an * are required."
+    name: "Name"
+    subject: "Subject"
+    message: "Message"
+    yourself: "Send copy to yourself"
+    send: "Send Email"
+    success: "Thank you for your time!"
+  
+  home:
+    title: "Home"
+    current_projects: "Current Projects"
+  
+  services:
+    title: "What We Do"
+  
+  projects:
+    title: "Projects"
+
+  news:
+    title: "News"
+  
+  clients:
+    title: "Clients"

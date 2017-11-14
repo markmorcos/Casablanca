@@ -1,0 +1,10 @@
+- content_for :title, t("clients.title")
+
+%section
+  .row
+    .columns
+      - @clients.each do |client|
+        %h1= client.name
+        = image_tag client.image
+        = simple_format(truncate(client.description, length: 750, separator: " "))
+        %h3= link_to t("read_more"), show_client_path(client)

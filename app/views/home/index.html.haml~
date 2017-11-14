@@ -1,0 +1,8 @@
+- content_for :title, 'Home'
+%ul.data-orbit{'data-orbit': '', 'data-options': "navigation_arrows: false; slide_number: false; timer: false; animation: 'fade';"}
+  - 5.times do
+    %li
+      = image_tag 'selected/DSC00098.JPG'
+  - 5.times do
+    %li
+      = image_tag 'selected/DSC00114.JPG'

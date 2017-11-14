@@ -1,0 +1,5 @@
+<% 3.times do |i| %>
+slider<%= i + 1 %>:
+  id: <%= i + 1 %>
+  image: File.open("app/assets/images/slide-<%= i + 1 %>.jpg")
+<% end %>

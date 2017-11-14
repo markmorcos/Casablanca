@@ -1,0 +1,76 @@
+section {
+
+  .mix {
+    display: none;
+  }
+  
+  img {
+    margin-bottom: 30px;
+  }
+  
+  p {
+    padding-bottom: 10px
+  }
+  
+  h3 {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 10px;
+    font-size: 22px;
+    font-weight: 500;
+    
+    a {
+      color: #2f2f2f;
+      -o-transition: all 0.5s ease;
+      -ms-transition: all 0.5s ease;
+      -moz-transition: all 0.5s ease;
+      -webkit-transition: all 0.5s ease;
+      transition: all 0.5s ease;
+
+    }
+    a.active, a:hover {
+      color: #8bc9be;
+    }
+  }
+}
+
+inner {
+  img {
+    margin-bottom: 9px;
+  }
+  
+  p {
+    vertical-align: top;
+  }
+}
+
+html[lang="en"] {
+  section h3 {
+    .fa {
+      margin-left: 5px;
+    }
+    
+    a {
+      margin-right: 10px;
+    }
+  }
+  
+  inner img {
+    margin-right: 18px;
+  }
+}
+html[lang="ar"] {
+  section h3 {
+    .fa {
+      margin-right: 5px;
+    }
+    
+    a {
+      margin-left: 10px;
+    }
+  }
+  
+  inner img {
+    margin-left: 18px;
+  }
+}

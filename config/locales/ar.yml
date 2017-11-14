@@ -1,0 +1,35 @@
+ar:
+  read_more: "اقرأ المزيد"
+  
+  abouts:
+    title: "عن شركتنا"
+  
+  contacts:
+    title: "اتصل بنا"
+    address: "العنوان"
+    phones: "التليفونات"
+    email: "البريد الإلكتروني"
+    misc: "معلومات متنوعة"
+    form_info: "ارسل رسالة إلكترونية، كل المساحات المسبوقة ب* هي مطلوبة"
+    name: "الإسم"
+    subject: "الموضوع"
+    message: "الرسالة"
+    yourself: "ارسل نسخة لنفسك"
+    send: "ارسل"
+    success: "شكرا لوقتك!"
+  
+  home:
+    title: "الصفحة الرئيسية"
+    current_projects: "المشاريع الحالية"
+  
+  services:
+    title: "ماذا نفعل"
+
+  projects:
+    title: "المشاريع"
+
+  news:
+    title: "الأخبار"
+    
+  clients:
+    title: "الزباثن"

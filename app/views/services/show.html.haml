@@ -1,0 +1,9 @@
+- content_for :title, @service.name
+
+%inner
+  .row
+    .columns
+      %h1= @service.name
+      = link_to (image_tag @service.image, class: float("left")), @service.image.to_s, title: @service.name
+      = simple_format(@service.description)
+      .clear

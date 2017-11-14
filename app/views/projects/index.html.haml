@@ -1,0 +1,12 @@
+#work
+  .row
+    .columns
+      %h2= t("projects.title")
+    - @projects.each do |project|
+      .columns.small-12.medium-6.large-3
+        = link_to (image_tag project.image.thumb), show_project_path(project)
+        .details
+          %h3= project.name
+          %p= truncate(project.description, length: 100, separator: " ")
+          %hr
+          = link_to t("read_more"), show_project_path(project)

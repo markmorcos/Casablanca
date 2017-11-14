@@ -1,0 +1,99 @@
+//*= require_tree
+@import "foundation_and_overrides";
+
+body {
+  padding-top: 7.96874em;
+  line-height: 0;
+}
+
+header {
+  position: fixed;
+  width: 100%;
+  background-color: #353a3e;
+  padding: 1%;
+  top: 0;
+  z-index: 11;
+  
+  img {
+    float: left;
+  }
+
+  #menu {
+    list-style: none;
+    float: right;
+    margin: 0;
+    
+    li {
+      float: left;
+      margin-right: 1.5em;
+      line-height: 6;
+      
+      a {
+        padding: 0 12px;
+        color: #b4b8b8;
+        font-size: 12px;
+        line-height: 1.2em;
+        font-family: 'Ubuntu', sans-serif;
+        text-transform: uppercase;
+        -o-transition: all 0.5s ease;
+        -ms-transition: all 0.5s ease;
+        -moz-transition: all 0.5s ease;
+        -webkit-transition: all 0.5s ease;
+        transition: all 0.5s ease;
+      }
+      a:hover, a.active {
+        color: #ffffff;
+        position: relative;
+      }
+      a::before, a::after {
+        opacity: 0;
+      }
+      a:hover::before, a.active::before {
+        content: "";
+        position: absolute;
+        height: 7px;
+        width: 7px;
+        border: 4px solid transparent;
+        border-top-color: #8bc9be;
+        left: 50%;
+        margin-left: -4px;
+        bottom: -25px;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+        pointer-events: none;
+        -o-transition: all 0.5s ease;
+        -ms-transition: all 0.5s ease;
+        -moz-transition: all 0.5s ease;
+        -webkit-transition: all 0.5s ease;
+        transition: all 0.5s ease;
+        opacity: 1;
+      }
+      a:hover::after, a.active::after {
+        content: "";
+        position: absolute;
+        height: 4px;
+        width: 100%;
+        background: #8bc9be;
+        left: 0;
+        bottom: -17px;
+        pointer-events: none;
+        -webkit-transition: all 0.5s ease;
+        -moz-transition: all 0.5s ease;
+        -o-transition: all 0.5s ease;
+        transition: all 0.5s ease;
+        opacity: 1;
+      }
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  body {
+    padding-top: 0;
+  }
+  header {
+    position: static;
+    display: inline-block;
+  }
+}
